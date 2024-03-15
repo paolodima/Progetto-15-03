@@ -1,0 +1,45 @@
+We projected this program with two main functionalities, port scanner and UDP Packet Sender.
+
+Port Scanner: Allows to scan ports on a given ip address to determine which ports are open 
+and which are closed or are not giving response. The user can specify a range of ports to scan 
+and the target IP address . The program uses thread to run the scan in a more efficent way.
+Usage: The user is prompted to insert the target IP to scan .
+Subsequently the user enters the range of ports to scan specifying the lower port and the higher port
+separeted by a dash(-).
+For example 1-1000
+The script runs the scan of the ports and prints the results in numerical order, giving a feedback.
+What is the point? It allows to send a certain amount of UDP packets to a given IP address and associeted port.
+The user can specify the destination IP(victim) , the port and the amount of packets to send. This feature also uses  
+thread to send the packets simoultaneously.
+After having identified the port using the scanner, the user is prompted to enter the "victim" IP address 
+to send the UDP packets.
+So the user enters the port number and number of packets to send.
+The script runs a certain amount of threads to send the UDP packet simoultaneously.
+
+1. The program starts by asking for the target IP address.
+2. Entering the range of ports to scan.
+3. Enter the victim IP address.
+4. Insert the previously acquired port.
+5. Entering the amount of UDP packets to send.
+
+Today's exercise is to write a python program that simulates a UDO flood, that is the mass sending of requests to 
+a target machine that is listening on a random UDP port.
+
+
+We imported the various libraries for the correct running.
+We defined the functions sendudp_packets, port_scan_range, port_scanner and obviously the main.
+
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+SOCK_DGRAM stands for the UDP protocol, not TCP
+data = bytearray(random.getrandbits(8) for _ in range(1024))
+So: 8 is 1 Byte, for _ in range(1024): to get up to 1024 byte
+The use of sockets in several points has been deliberately introduced to 
+make it quicker and efficient.
+
+
+
+
+
+
+
